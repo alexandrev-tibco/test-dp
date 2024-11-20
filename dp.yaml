@@ -21,10 +21,10 @@ metadata:
   name: dp-configure-namespace
   namespace: test-dp
 spec:
+  interval: 1m0s
   releaseName: dp-configure-namespace
   chart:
     spec:
-      interval: 1m0s
       chart: dp-configure-namespace
       sourceRef:
         kind: HelmRepository
@@ -46,10 +46,10 @@ metadata:
   name: dp-core-infrastructure
   namespace: test-dp
 spec:
+  interval: 1m0s
   releaseName: dp-core-infrastructure
   chart:
     spec:
-      interval: 1m0s
       chart: dp-core-infrastructure
       sourceRef:
         kind: HelmRepository
