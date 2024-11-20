@@ -10,7 +10,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: tibcoplatform
-  namespace: default
+  namespace: test-dp
 spec:
   interval: 1m0s
   url: https://tibcosoftware.github.io/tp-helm-charts
