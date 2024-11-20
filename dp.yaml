@@ -28,8 +28,8 @@ spec:
       chart: dp-configure-namespace
       sourceRef:
         kind: HelmRepository
-        name: tp-helm-charts
-        namespace: flux-system
+        name: tibcoplatform
+        namespace: test-dp
       version: 1.3.4
   values:
     global:
@@ -53,8 +53,8 @@ spec:
       chart: dp-core-infrastructure
       sourceRef:
         kind: HelmRepository
-        name: tp-helm-charts
-        namespace: flux-system
+        name: tibcoplatform
+        namespace: test-dp
       version: 1.3.16
   values:
     global:
