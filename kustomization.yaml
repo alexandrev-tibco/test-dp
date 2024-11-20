@@ -2,16 +2,3 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - dp.yaml
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: test-dp
-  namespace: test-dp
-spec:
-  interval: 1m
-  sourceRef:
-    kind: GitRepository
-    name: test-dp
-  prune: true
-  timeout: 1m
