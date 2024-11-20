@@ -24,6 +24,7 @@ spec:
   releaseName: dp-configure-namespace
   chart:
     spec:
+      interval: 5m
       chart: dp-configure-namespace
       sourceRef:
         kind: HelmRepository
@@ -48,6 +49,7 @@ spec:
   releaseName: dp-core-infrastructure
   chart:
     spec:
+      interval: 5m
       chart: dp-core-infrastructure
       sourceRef:
         kind: HelmRepository
