@@ -18,7 +18,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: dp-configure-namespace
+  name: dp-configure-namespace-1
   namespace: test-dp
 spec:
   interval: 1m0s
@@ -43,7 +43,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: dp-core-infrastructure
+  name: dp-core-infrastructure-1
   namespace: test-dp
 spec:
   interval: 1m0s
