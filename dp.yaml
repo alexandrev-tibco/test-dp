@@ -40,5 +40,44 @@ spec:
         primaryNamespaceName: test-dp
         serviceAccount: test-dp
         enableClusterScopedPerm: true
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: dp-core-infrastructure-1
+  namespace: test-dp
+spec:
+  interval: 1m0s
+  releaseName: dp-core-infrastructure
+  install:
+    disableWait: true
+  chart:
+    spec:
+      chart: dp-core-infrastructure
+      sourceRef:
+        kind: HelmRepository
+        name: tibcoplatform
+        namespace: test-dp
+      version: 1.3.16
+  values:
+    global:
+      tibco:
+        dataPlaneId: ctbvvkbdf96cgjlm9oi0
+        subscriptionId: cpgo0sb8ook60pv3bfo0
+        serviceAccount: test-dp
+        containerRegistry:
+          url: csgprdeuwrepoedge.jfrog.io
+          repository: tibco-platform-docker-prod
+          email: tibco-plt@cloud.com
+      proxy:
+        noProxy: ''
+      logging:
+        fluentbit:
+          enabled: false
+    tp-tibtunnel:
+      configure:
+        accessKey: pdWOaZyXosTCIiuyTQSRyzTmH4PxNcefLNiIu6vf+ww
+      connect:
+        url: https://pmats.eu-west.tunnel.tibco.com/sub-cpgo0sb8ook60pv3bfo0-dp-ctbvvkbdf96cgjlm9oi0
 
 
