@@ -50,7 +50,6 @@ spec:
   interval: 1m0s
   releaseName: dp-core-infrastructure
   install:
-    disableHooks: true
     disableWait: true
   chart:
     spec:
