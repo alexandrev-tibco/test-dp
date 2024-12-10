@@ -4,7 +4,7 @@ kind: Namespace
 metadata:
   name: test-dp
   labels:
-    platform.tibco.com/dataplane-id: csuqggjdf96cgjlm92lg
+    platform.tibco.com/dataplane-id: ctbvvkbdf96cgjlm9oi0
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
@@ -23,6 +23,8 @@ metadata:
 spec:
   interval: 1m0s
   releaseName: dp-configure-namespace
+  install:
+    disableHooks: true
   chart:
     spec:
       chart: dp-configure-namespace
@@ -34,10 +36,10 @@ spec:
   values:
     global:
       tibco:
-        dataPlaneId: csuqggjdf96cgjlm92lg
+        dataPlaneId: ctbvvkbdf96cgjlm9oi0
         primaryNamespaceName: test-dp
         serviceAccount: test-dp
-        enableClusterScopedPerm: false
+        enableClusterScopedPerm: true
         
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
@@ -48,6 +50,8 @@ metadata:
 spec:
   interval: 1m0s
   releaseName: dp-core-infrastructure
+  install:
+    disableHooks: true
   chart:
     spec:
       chart: dp-core-infrastructure
@@ -59,7 +63,7 @@ spec:
   values:
     global:
       tibco:
-        dataPlaneId: csuqggjdf96cgjlm92lg
+        dataPlaneId: ctbvvkbdf96cgjlm9oi0
         subscriptionId: cpgo0sb8ook60pv3bfo0
         serviceAccount: test-dp
         containerRegistry:
@@ -73,6 +77,6 @@ spec:
           enabled: false
     tp-tibtunnel:
       configure:
-        accessKey: 4P/v8bFU4uHYdHCVCKA1/nc9ojhyKrM/2IUNcWfUJVc
+        accessKey: pdWOaZyXosTCIiuyTQSRyzTmH4PxNcefLNiIu6vf+ww
       connect:
-        url: https://pmats.eu-west.tunnel.tibco.com/sub-cpgo0sb8ook60pv3bfo0-dp-csuqggjdf96cgjlm92lg
+        url: https://pmats.eu-west.tunnel.tibco.com/sub-cpgo0sb8ook60pv3bfo0-dp-ctbvvkbdf96cgjlm9oi0
